@@ -1,0 +1,56 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_joke
+
+- story: interactive_story_1
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+  - intent: Cricket
+    entities:
+    - crickscore: 33/4
+  - action: score_circket
+
+
+- story: covid_1
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+  - intent: covid_19
+  - action: utter_covid_19_info
+  - intent: covid_19_symptoms
+  - action: utter_covid_19_symptoms
+
+- story: covid_2
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+  - intent: covid_19_symptoms
+  - action: utter_covid_19_symptoms
